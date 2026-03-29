@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ग्रामपंचायत अधिकृत संकेतस्थळ - Gram Panchayat Official Website">
+    <title>ग्रामपंचायत बोर्डा झुल्लुरवार | Gram Panchayat Borda Zhullurwar</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Mukta', 'sans-serif'],
+                        'body': ['Work Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': {
+                            'base': '#0A3161',
+                            'hover': '#001D4A',
+                            'text': '#FFFFFF'
+                        },
+                        'secondary': {
+                            'base': '#0056B3',
+                            'hover': '#004494'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Base Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Mukta', sans-serif;
+        }
+        
+        /* Hero Overlay */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(10, 49, 97, 0.7), rgba(0, 29, 74, 0.8));
+        }
+        
+        /* Active Nav Link */
+        .nav-link-active {
+            color: #0056B3;
+            position: relative;
+        }
+        
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #0056B3;
+            border-radius: 1px;
+        }
+        
+        /* Card Hover */
+        .card-hover {
+            transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(10, 49, 97, 0.1), 0 8px 10px -6px rgba(10, 49, 97, 0.1);
+        }
+        
+        /* Gallery Image Hover */
+        .gallery-image-container {
+            overflow: hidden;
+        }
+        
+        .gallery-image-container img {
+            transition: transform 400ms ease-in-out;
+        }
+        
+        .gallery-image-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Mobile Menu Animation */
+        .mobile-menu-enter {
+            animation: slideDown 300ms ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Focus Styles */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid #2563EB;
+            outline-offset: 2px;
+        }
+        
+        
+        /* Language Toggle Styles */
+        body.lang-mr .lang-en { display: none !important; }
+        body.lang-en .lang-mr { display: none !important; }
+        
+        .lang-toggle {
+            cursor: pointer;
+            padding: 4px;
+            background: #f1f5f9;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            user-select: none;
+        }
+        .lang-toggle .toggle-inner {
+            display: flex;
+            position: relative;
+            z-index: 10;
+        }
+        .lang-toggle span {
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: color 0.3s;
+            z-index: 10;
+        }
+        .lang-toggle .active-bg {
+            position: absolute;
+            background: #fff;
+            border-radius: 9999px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            top: 4px;
+            bottom: 4px;
+            width: calc(50% - 4px);
+            z-index: 0;
+        }
+        
+        body.lang-mr .lang-toggle span.mr-label { color: #0f172a; }
+        body.lang-en .lang-toggle span.en-label { color: #0f172a; }
+        body.lang-mr .lang-toggle .active-bg { transform: translateX(0); }
+        body.lang-en .lang-toggle .active-bg { transform: translateX(100%); }
+
+        /* Form Input Focus */
+        input:focus, textarea:focus, select:focus {
+            border-color: #0056B3;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900 lang-mr">
+    
+    <!-- ==================== NAVBAR ==================== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary-base flex items-center justify-center">
+                        <i data-lucide="landmark" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-sm font-semibold text-primary-base"><span class="lang-mr">ग्रामपंचायत बोर्डा झुल्लुरवार</span><span class="lang-en">Gram Panchayat Borda Zhullurwar</span></p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="#home" class="nav-link px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-slate-600 hover:text-primary-base hover:bg-slate-50" data-section="home">
+                        <span class="lang-mr">मुख्यपृष्ठ</span><span class="lang-en">Home</span>
+                    </a>
+                    <a href="#about" class="nav-link px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-slate-600 hover:text-primary-base hover:bg-slate-50" data-section="about">
+                        <span class="lang-mr">माहिती</span><span class="lang-en">About</span>
+                    </a>
+                    <a href="#members" class="nav-link px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-slate-600 hover:text-primary-base hover:bg-slate-50" data-section="members">
+                        <span class="lang-mr">सदस्य</span><span class="lang-en">Members</span>
+                    </a>
+                    <a href="#gallery" class="nav-link px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-slate-600 hover:text-primary-base hover:bg-slate-50" data-section="gallery">
+                        <span class="lang-mr">गॅलरी</span><span class="lang-en">Gallery</span>
+                    </a>
+                    <a href="#info" class="nav-link px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-slate-600 hover:text-primary-base hover:bg-slate-50" data-section="info">
+                        <span class="lang-mr">योजना</span><span class="lang-en">Schemes</span>
+                    </a>
+                    <a href="#contact-form" class="nav-link px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-slate-600 hover:text-primary-base hover:bg-slate-50" data-section="contact-form">
+                        <span class="lang-mr">चौकशी</span><span class="lang-en">Query</span>
+                    </a>
+                    <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-slate-600 hover:text-primary-base hover:bg-slate-50" data-section="contact">
+                        <span class="lang-mr">संपर्क</span><span class="lang-en">Contact</span>
+                    </a>
+                </div>
+                <!-- Language Toggle -->
+                <div class="lang-toggle ml-4" onclick="toggleLanguage()" title="Change Language">
+                    <div class="active-bg"></div>
+                    <div class="toggle-inner">
+                        <span class="mr-label">मराठी</span>
+                        <span class="en-label">Eng</span>
+                    </div>
+                </div>
+
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6 menu-icon"></i>
+                    <i data-lucide="x" class="w-6 h-6 close-icon hidden"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden py-4 border-t border-slate-100 mobile-menu-enter">
+                <div class="flex flex-col gap-1">
+                    <a href="#home" class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-colors text-slate-600 hover:bg-slate-50" data-section="home">
+                        <i data-lucide="home" class="w-5 h-5"></i>
+                        <span class="font-medium"><span class="lang-mr">मुख्यपृष्ठ</span><span class="lang-en">Home</span></span>
+                    </a>
+                    <a href="#about" class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-colors text-slate-600 hover:bg-slate-50" data-section="about">
+                        <i data-lucide="info" class="w-5 h-5"></i>
+                        <span class="font-medium"><span class="lang-mr">माहिती</span><span class="lang-en">About</span></span>
+                    </a>
+                    <a href="#members" class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-colors text-slate-600 hover:bg-slate-50" data-section="members">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                        <span class="font-medium"><span class="lang-mr">सदस्य</span><span class="lang-en">Members</span></span>
+                    </a>
+                    <a href="#gallery" class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-colors text-slate-600 hover:bg-slate-50" data-section="gallery">
+                        <i data-lucide="image" class="w-5 h-5"></i>
+                        <span class="font-medium"><span class="lang-mr">गॅलरी</span><span class="lang-en">Gallery</span></span>
+                    </a>
+                    <a href="#info" class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-colors text-slate-600 hover:bg-slate-50" data-section="info">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                        <span class="font-medium"><span class="lang-mr">योजना</span><span class="lang-en">Schemes</span></span>
+                    </a>
+                    <a href="#contact-form" class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-colors text-slate-600 hover:bg-slate-50" data-section="contact-form">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                        <span class="font-medium"><span class="lang-mr">चौकशी</span><span class="lang-en">Query</span></span>
+                    </a>
+                    <a href="#contact" class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-colors text-slate-600 hover:bg-slate-50" data-section="contact">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        <span class="font-medium"><span class="lang-mr">संपर्क</span><span class="lang-en">Contact</span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+    
+        <!-- ==================== HERO SECTION ==================== -->
+        <section id="home" class="relative min-h-[85vh] flex items-center justify-center">
+            <!-- Background Image - CUSTOMIZE: Replace with your village image -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('./assets/gp_pic.jpeg');">
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-2 border-white/30">
+                        <i data-lucide="landmark" class="w-10 h-10 sm:w-12 sm:h-12 text-white"></i>
+                    </div>
+                </div>
+                
+                <!-- CUSTOMIZE: Gram Panchayat Name -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
+                    <span class="lang-mr">ग्रामपंचायत बोर्डा झुल्लुरवार</span>
+                    <span class="lang-en">Grampanchayat Borda Zhullurwar</span>
+                </h1>
+                
+                <!-- CUSTOMIZE: Village & District -->
+                <div class="flex items-center justify-center gap-2 text-white/80 mb-4">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    <p class="text-lg sm:text-xl">
+                        <span class="lang-mr">पंचायत समिती पोंभुर्णा, जिल्हा चंद्रपूर</span><span class="lang-en">Panchayat Samiti Pombhurna, District Chandrapur</span>    
+                    </p>
+                </div>
+
+                <!-- CUSTOMIZE: Tagline -->
+                <p class="text-lg sm:text-xl text-white/70 italic">
+                    <span class="lang-mr">"स्वच्छ गाव, समृद्ध गाव"</span><span class="lang-en">"Clean Village, Prosperous Village"</span>
+                </p>
+                <!--p class="text-lg sm:text-xl text-white/70 italic">
+                    <span class="lang-mr">आय.एस.ओ. क्र. - ISO 9001:2015</span><span class="lang-en">ISO No - ISO 9001:2015</span>
+                </p-->
+
+                <div class="mt-10">
+                    <a href="#about" class="inline-flex items-center justify-center bg-white text-primary-base hover:bg-white/90 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg transition-colors">
+                        <span class="lang-mr">अधिक जाणून घ्या</span><span class="lang-en">Learn More</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section id="about" class="py-16 md:py-24 lg:py-32 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-16">
+                    <p class="text-sm uppercase tracking-wider font-semibold text-secondary-base mb-2"><span class="lang-mr">माहिती</span><span class="lang-en">About</span></p>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 tracking-tight">
+                        <span class="lang-mr">गावाची ओळख</span><span class="lang-en">Village Overview</span>
+                    </h2>
+                </div>
+
+                <!-- CUSTOMIZE: Update statistics below -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Population Card -->
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-6 md:p-8 text-center">
+                        <div class="w-14 h-14 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="users" class="w-7 h-7"></i>
+                        </div>
+                        <p class="text-3xl sm:text-4xl font-bold text-primary-base mb-2">808</p>
+                        <p class="text-base text-slate-600 font-medium"><span class="lang-mr">लोकसंख्या</span><span class="lang-en">Population</span></p>
+                    </div>
+
+                    <!-- Area Card -->
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-6 md:p-8 text-center">
+                        <div class="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="map-pin" class="w-7 h-7"></i>
+                        </div>
+                        <p class="text-3xl sm:text-4xl font-bold text-primary-base mb-2">207.71 Hector/R</p>
+                        <p class="text-base text-slate-600 font-medium"><span class="lang-mr">क्षेत्रफळ</span><span class="lang-en">Area</span></p>
+                    </div>
+
+                    <!-- Households Card -->
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-6 md:p-8 text-center">
+                        <div class="w-14 h-14 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="home" class="w-7 h-7"></i>
+                        </div>
+                        <p class="text-3xl sm:text-4xl font-bold text-primary-base mb-2">233</p>
+                        <p class="text-base text-slate-600 font-medium"><span class="lang-mr">कुटुंबे</span><span class="lang-en">Households</span></p>
+                    </div>
+
+                    <!-- Contact Card -->
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-6 md:p-8 text-center">
+                        <div class="w-14 h-14 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="phone" class="w-7 h-7"></i>
+                        </div>
+                        <p class="text-3xl sm:text-4xl font-bold text-primary-base mb-2">9923111120</p>
+                        <p class="text-base text-slate-600 font-medium"><span class="lang-mr">संपर्क</span><span class="lang-en">Contact</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MEMBERS SECTION ==================== -->
+        <section id="members" class="py-16 md:py-24 lg:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-16">
+                    <p class="text-sm uppercase tracking-wider font-semibold text-secondary-base mb-2"><span class="lang-mr">सदस्य</span><span class="lang-en">Members</span></p>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 tracking-tight">
+                        <span class="lang-mr">ग्रामपंचायत सदस्य</span><span class="lang-en">Panchayat Members</span>
+                    </h2>
+                </div>
+
+                <!-- CUSTOMIZE: Update member names, roles and images -->
+                <div class="flex flex-wrap justify-center gap-6">
+                    <!-- Prashasak -->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/sarpanch SOU. SANGITA RAKESH GAWHARE.jpeg" alt="Sarpanch" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ. संगीता राकेश गव्हारे</h3>
+                            <p class="text-sm text-slate-500 mb-2">Sau. Sangita Rakesh Gawhare</p>
+                            <span class="inline-block bg-secondary-base text-white text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">सरपंच</span><span class="lang-en">Sarpanch</span> </span>
+                        </div>
+                    </div>
+
+                    <!-- Deputy Sarpanch -->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/amol kashinath burande upsarpanch.jpeg" alt="Deputy Sarpanch" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">श्री.रमेश गंगाधर कुमरे
+ </h3>
+                            <p class="text-sm text-slate-500 mb-2">Shree Amol Kashinath Burande</p>
+                            <span class="inline-block bg-secondary-base text-white text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">उपसरपंच</span><span class="lang-en">Up Sarpanch</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Member 1 -->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/anuja vikas ramteke.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ.अनुजा विकास रामटेके
+</h3>
+                            <p class="text-sm text-slate-500 mb-2">Sau Anuja Vikas Ramteke</p>
+                            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">सदस्य</span><span class="lang-en">Member</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/ashish sudhakar deshattiwar.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">श्री.अशिष सुधाकर देशट्टीवार
+</h3>
+                            <p class="text-sm text-slate-500 mb-2">Shree Ashish Sudhakar Deshattiwar</p>
+                            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">सदस्य</span><span class="lang-en">Member</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/indutai anil kumbhare.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ.इंदुताई अनिल कुंभारे
+</h3>
+                            <p class="text-sm text-slate-500 mb-2">Sau Indutai Anil Kumbhare</p>
+                            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">सदस्य</span><span class="lang-en">Member</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Member 4 -->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/kavita rohit raut.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ.कविता रोहीत राऊत
+</h3>
+                            <p class="text-sm text-slate-500 mb-2">Sau Kavita Rohit Raut</p>
+                            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">सदस्य</span><span class="lang-en">Member</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Member 5-->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/lalita pradip gaddekar.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ.ललिता प्रदीप गद्देकर 
+</h3>
+                            <p class="text-sm text-slate-500 mb-2">Sau Lalita Pradip Gaddekar</p>
+                            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">सदस्य</span><span class="lang-en">Member</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Member 6 -->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/pankesh anil naitam.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">श्री.पंकज अनिल नैताम   </h3>
+                            <p class="text-sm text-slate-500 mb-2">Shree Pankaj Anil Naitam</p>
+                            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">ग्रामसेवक</span><span class="lang-en">Grampanchayat Officer</span></span>
+                        </div>
+                    </div>
+                    <!-- Member 7  -->
+                    <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
+                        <div class="aspect-square bg-slate-100 overflow-hidden">
+                            <img src="./assets/श्री प्रवीण कडूकर.jpg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-1">श्री.प्रवीण कडूकर   </h3>
+                            <p class="text-sm text-slate-500 mb-2">Shree Pravin Kadukar</p>
+                            <span class="inline-block bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium"><span class="lang-mr">ग्रामसेवक</span><span class="lang-en">Grampanchayat Officer</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== GALLERY SECTION ==================== -->
+        <section id="gallery" class="py-16 md:py-24 lg:py-32 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-16">
+                    <p class="text-sm uppercase tracking-wider font-semibold text-secondary-base mb-2"><span class="lang-mr">गॅलरी</span><span class="lang-en">Gallery</span></p>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 tracking-tight">
+                        <span class="lang-mr">गावाची छायाचित्रे</span><span class="lang-en">Village Photos</span>
+                    </h2>
+                </div>
+
+                <!-- CUSTOMIZE: Replace with your village images -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/ekghasmayecha.jpeg" alt="Village View" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"> <span class="lang-mr">एक घास मायेचा </span><span class="lang-en">Ek Ghas Mayecha</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/gavachi_mahiti.jpeg" alt="Agricultural Work" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">गावची माहिती</span><span class="lang-en">Village Information</span></p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/vanraibandhara.jpeg" alt="Rural Life" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">वनराई बंधारा</span><span class="lang-en">Vanrai Bandhara</span> </p>
+                        </div>
+                    </div>
+
+                    <!--div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">एक घास मायेचा उपक्रम</span><span class="lang-en">Ek Ghas Mayecha Upakram</span></p>
+                        </div>
+                    </div>
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/ghantagadi.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">स्वच्छता अभियान</span><span class="lang-en">Cleanup Drive by Ghantagadi</span></p>
+                        </div>
+                    </div>
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/gramsabha.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">ग्रामसभा</span><span class="lang-en">Gramsabha</span></p>
+                        </div>
+                    </div>
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/heatwawe_info.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">उष्माघात माहिती</span><span class="lang-en">Heatwave Information</span></p>
+                        </div>
+                    </div>
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/mahila_sabha.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">महिला बचत गट</span><span class="lang-en">Mahila Bachat Gat</span></p>
+                        </div>
+                    </div>
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/palasbag.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">पलाशबाग</span><span class="lang-en">Palasbag</span></p>
+                        </div>
+                    </div>
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/rangoli.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">रांगोळी स्पर्धा</span><span class="lang-en">Rangoli Competition</span></p>
+                        </div>
+                    </div>
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/yoga.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">योग दिन</span><span class="lang-en">Yoga Day</span></p>
+                        </div>
+                    </div>
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/zp.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">झेडपी शाळा</span><span class="lang-en">ZP School</span></p>
+                        </div>
+                    </div-->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== INFO/SCHEMES SECTION ==================== -->
+        <section id="info" class="py-16 md:py-24 lg:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-16">
+                    <p class="text-sm uppercase tracking-wider font-semibold text-secondary-base mb-2"><span class="lang-mr">योजना</span><span class="lang-en">Schemes</span></p>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 tracking-tight">
+                        <span class="lang-mr">सरकारी योजना व सूचना</span><span class="lang-en">Government Schemes & Notices</span>
+                    </h2>
+                </div>
+
+                <!-- CUSTOMIZE: Update schemes/notices -->
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- Scheme 1 - New -->
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-5 md:p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="file-text" class="w-6 h-6 text-secondary-base"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                    <h3 class="text-lg font-semibold text-slate-900">प्रधानमंत्री आवास योजना</h3>
+                                    <span class="bg-secondary-base text-white text-xs px-2 py-0.5 rounded-full"><span class="lang-mr">नवीन</span><span class="lang-en">New</span></span>
+                                </div>
+                                <p class="text-sm text-slate-500 mb-1">Pradhan Mantri Awas Yojana</p>
+                                <p class="text-base text-slate-600"><span class="lang-mr">घरकुल योजनेसाठी अर्ज करा</span><span class="lang-en">Apply for housing scheme</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scheme 2 - New -->
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-5 md:p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="file-text" class="w-6 h-6 text-secondary-base"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                    <h3 class="text-lg font-semibold text-slate-900">स्वच्छ भारत मिशन</h3>
+                                    <span class="bg-secondary-base text-white text-xs px-2 py-0.5 rounded-full"><span class="lang-mr">नवीन</span><span class="lang-en">New</span></span>
+                                </div>
+                                <p class="text-sm text-slate-500 mb-1">Swachh Bharat Mission</p>
+                                <p class="text-base text-slate-600"><span class="lang-mr">शौचालय बांधकाम अनुदान</span><span class="lang-en">Toilet construction subsidy</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scheme 3 -->
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-5 md:p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="file-text" class="w-6 h-6 text-secondary-base"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-lg font-semibold text-slate-900 mb-1">कृषी सिंचन योजना</h3>
+                                <p class="text-sm text-slate-500 mb-1">Krishi Sinchan Yojana</p>
+                                <p class="text-base text-slate-600"><span class="lang-mr">सूक्ष्म सिंचन सुविधा</span><span class="lang-en">Micro irrigation facility</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scheme 4 -->
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-5 md:p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="file-text" class="w-6 h-6 text-secondary-base"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-lg font-semibold text-slate-900 mb-1">महात्मा गांधी रोजगार हमी</h3>
+                                <p class="text-sm text-slate-500 mb-1">MGNREGA</p>
+                                <p class="text-base text-slate-600"><span class="lang-mr">रोजगार नोंदणी सुरू</span><span class="lang-en">Employment registration open</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT FORM SECTION ==================== -->
+        <section id="contact-form" class="py-16 md:py-24 lg:py-32 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-16">
+                    <p class="text-sm uppercase tracking-wider font-semibold text-secondary-base mb-2"><span class="lang-mr">संपर्क करा</span><span class="lang-en">Contact Us</span></p>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 tracking-tight">
+                        <span class="lang-mr">तुमची चौकशी पाठवा</span><span class="lang-en">Submit Your Query</span>
+                    </h2>
+                    <p class="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+                        <span class="lang-mr">ग्रामपंचायतशी संपर्क साधण्यासाठी खालील फॉर्म भरा</span><span class="lang-en">Fill the form below to contact the Gram Panchayat</span>
+                    </p>
+                </div>
+
+                <div class="max-w-2xl mx-auto">
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-lg p-6 md:p-8">
+                        <!-- Success Message (Hidden by default) -->
+                        <div id="form-success" class="hidden text-center py-8">
+                            <div class="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
+                                <i data-lucide="check-circle" class="w-8 h-8 text-emerald-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-slate-900 mb-2"><span class="lang-mr">धन्यवाद!</span><span class="lang-en">Thank You!</span></h3>
+                            <p class="text-slate-600 mb-6">
+                                <span class="lang-mr">तुमची चौकशी यशस्वीरित्या प्राप्त झाली. आम्ही लवकरच संपर्क साधू.</span><span class="lang-en">Your query has been submitted successfully. We will contact you soon.</span>
+                            </p>
+                            <button onclick="resetForm()" class="inline-flex items-center justify-center bg-primary-base hover:bg-primary-hover text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                <span class="lang-mr">नवीन चौकशी पाठवा</span><span class="lang-en">Submit Another Query</span>
+                            </button>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <form id="contact-form-element" class="space-y-6">
+                            <!-- Error Message -->
+                            <div id="form-error" class="hidden flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
+                                <i data-lucide="alert-circle" class="w-5 h-5 text-red-600 flex-shrink-0"></i>
+                                <p id="error-text" class="text-sm text-red-600"></p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Name -->
+                                <div class="space-y-2">
+                                    <label for="name" class="block text-sm font-medium text-slate-700">
+                                        <span class="lang-mr">नाव</span><span class="lang-en">Name</span> <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="name" name="name" required
+                                        placeholder="तुमचे पूर्ण नाव"
+                                        class="w-full px-4 py-3 border border-slate-300 rounded-lg text-base transition-colors">
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="space-y-2">
+                                    <label for="phone" class="block text-sm font-medium text-slate-700">
+                                        <span class="lang-mr">फोन नंबर</span><span class="lang-en">Phone</span> <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" required
+                                        placeholder="10 अंकी नंबर"
+                                        class="w-full px-4 py-3 border border-slate-300 rounded-lg text-base transition-colors">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Email -->
+                                <div class="space-y-2">
+                                    <label for="email" class="block text-sm font-medium text-slate-700">
+                                        <span class="lang-mr">ईमेल</span><span class="lang-en">Email</span> <span class="text-slate-400"><span class="lang-mr">(ऐच्छिक)</span><span class="lang-en">(Optional)</span></span>
+                                    </label>
+                                    <input type="email" id="email" name="email"
+                                        placeholder="example@email.com"
+                                        class="w-full px-4 py-3 border border-slate-300 rounded-lg text-base transition-colors">
+                                </div>
+
+                                <!-- Query Type -->
+                                <div class="space-y-2">
+                                    <label for="query_type" class="block text-sm font-medium text-slate-700">
+                                        <span class="lang-mr">चौकशीचा प्रकार</span><span class="lang-en">Query Type</span>
+                                    </label>
+                                    <select id="query_type" name="query_type"
+                                        class="w-full px-4 py-3 border border-slate-300 rounded-lg text-base transition-colors bg-white">
+                                        <option value="general">सामान्य चौकशी / General Inquiry</option>
+                                        <option value="scheme">योजना माहिती / Scheme Information</option>
+                                        <option value="complaint">तक्रार / Complaint</option>
+                                        <option value="suggestion">सूचना / Suggestion</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Subject -->
+                            <div class="space-y-2">
+                                <label for="subject" class="block text-sm font-medium text-slate-700">
+                                    <span class="lang-mr">विषय</span><span class="lang-en">Subject</span> <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="subject" name="subject" required
+                                    placeholder="चौकशीचा विषय / Subject of your query"
+                                    class="w-full px-4 py-3 border border-slate-300 rounded-lg text-base transition-colors">
+                            </div>
+
+                            <!-- Message -->
+                            <div class="space-y-2">
+                                <label for="message" class="block text-sm font-medium text-slate-700">
+                                    <span class="lang-mr">संदेश</span><span class="lang-en">Message</span> <span class="text-red-500">*</span>
+                                </label>
+                                <textarea id="message" name="message" rows="5" required
+                                    placeholder="तुमची चौकशी तपशीलवार लिहा / Write your query in detail"
+                                    class="w-full px-4 py-3 border border-slate-300 rounded-lg text-base transition-colors resize-none"></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" id="submit-btn"
+                                class="w-full flex items-center justify-center gap-2 bg-primary-base hover:bg-primary-hover text-white py-4 px-6 rounded-lg text-lg font-semibold transition-colors">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                <span><span class="lang-mr">चौकशी पाठवा</span><span class="lang-en">Submit Query</span></span>
+                            </button>
+
+                            <p class="text-xs text-slate-500 text-center">
+                                <span class="text-red-500">*</span> <span class="lang-mr">आवश्यक माहिती</span><span class="lang-en">Required fields</span>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="contact" class="bg-primary-base text-white py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+                <!-- Village Name -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                            <i data-lucide="landmark" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <!-- CUSTOMIZE: Gram Panchayat Name -->
+                            <h3 class="text-xl font-bold">ग्रामपंचायत बोर्डा झुल्लुरवार</h3>
+                            <p class="text-white/70 text-sm">Gram Panchayat Borda Zhullurwar</p>
+                        </div>
+                    </div>
+                    <p class="text-white/60 text-sm italic">"स्वच्छ गाव, समृद्ध गाव"</p>
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <i data-lucide="building-2" class="w-5 h-5"></i>
+                        <span class="lang-mr">पत्ता</span><span class="lang-en">Address</span>
+                    </h4>
+                    <!-- CUSTOMIZE: Address -->
+                    <p class="text-white/80 text-sm leading-relaxed mb-2">ग्रामपंचायत कार्यालय, बोर्डा झुल्लुरवार, पंचायत समिती पोंभुर्णा, जि. चंद्रपूर - 442918</p>
+                    <p class="text-white/60 text-sm leading-relaxed">Gram Panchayat Office, Borda Zhullurwar, Panchayat Samiti Pombhurna, Dist. Chandrapur - 442918</p>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4"><span class="lang-mr">संपर्क</span><span class="lang-en">Contact</span></h4>
+                    <div class="space-y-3">
+                        <!-- CUSTOMIZE: Phone -->
+                        <a href="tel:9923111120" class="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            <span>9923111120</span>
+                        </a>
+                        <!-- CUSTOMIZE: Email -->
+                        <a href="mailto:gpbordazullurwar@gmail.com" class="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                            <span class="break-all">gpbordazullurwar@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-12 pt-8 border-t border-white/10 text-center">
+                <p class="text-white/50 text-sm">
+                    © <span id="year"></span> Gram Panchayat Borda Zhullurwar. <span class="lang-mr">सर्व हक्क राखीव</span><span class="lang-en">All Rights Reserved</span><span> Developed by <a href="https://github.com/theketan2">Ketan D. Ramteke</span></a></span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        
+        // Language Toggle Logic
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-mr')) {
+                body.classList.remove('lang-mr');
+                body.classList.add('lang-en');
+                localStorage.setItem('preferredLang', 'lang-en');
+                updatePlaceholders('en');
+            } else {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-mr');
+                localStorage.setItem('preferredLang', 'lang-mr');
+                updatePlaceholders('mr');
+            }
+        }
+        
+        
+        function updateOptions(lang) {
+            const select = document.getElementById('query_type');
+            if (select) {
+                const opts = select.options;
+                if (lang === 'en') {
+                    opts[0].text = 'General Inquiry';
+                    opts[1].text = 'Scheme Information';
+                    opts[2].text = 'Complaint';
+                    opts[3].text = 'Suggestion';
+                } else {
+                    opts[0].text = 'सामान्य चौकशी / General Inquiry';
+                    opts[1].text = 'योजना माहिती / Scheme Information';
+                    opts[2].text = 'तक्रार / Complaint';
+                    opts[3].text = 'सूचना / Suggestion';
+                }
+            }
+        }
+
+        function updatePlaceholders(lang) {
+            updateOptions(lang);
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+            
+            if (nameInput) nameInput.placeholder = lang === 'en' ? 'Your full name' : 'तुमचे पूर्ण नाव';
+            if (phoneInput) phoneInput.placeholder = lang === 'en' ? '10-digit number' : '10 अंकी नंबर';
+            if (subjectInput) subjectInput.placeholder = lang === 'en' ? 'Subject of your query' : 'चौकशीचा विषय';
+            if (messageInput) messageInput.placeholder = lang === 'en' ? 'Write your query in detail' : 'तुमची चौकशी तपशीलवार लिहा';
+        }
+
+        // Initialize Language on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'lang-mr';
+            document.body.classList.add(savedLang);
+            updatePlaceholders(savedLang === 'lang-en' ? 'en' : 'mr');
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        const closeIcon = document.querySelector('.close-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+
+        // Scrollspy - Highlight active section in navbar
+        const sections = document.querySelectorAll('section[id], footer[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function updateActiveSection() {
+            let current = '';
+            const navHeight = 80;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navHeight - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Update desktop nav links
+            navLinks.forEach(link => {
+                link.classList.remove('nav-link-active', 'text-secondary-base', 'bg-blue-50');
+                link.classList.add('text-slate-600');
+                
+                if (link.getAttribute('data-section') === current) {
+                    link.classList.add('nav-link-active', 'text-secondary-base', 'bg-blue-50');
+                    link.classList.remove('text-slate-600');
+                }
+            });
+
+            // Update mobile nav links
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('text-secondary-base', 'bg-blue-50');
+                link.classList.add('text-slate-600');
+                
+                if (link.getAttribute('data-section') === current) {
+                    link.classList.add('text-secondary-base', 'bg-blue-50');
+                    link.classList.remove('text-slate-600');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveSection);
+        window.addEventListener('load', updateActiveSection);
+
+        // Contact Form Handling
+        const contactForm = document.getElementById('contact-form-element');
+        const formSuccess = document.getElementById('form-success');
+        const formError = document.getElementById('form-error');
+        const errorText = document.getElementById('error-text');
+        const submitBtn = document.getElementById('submit-btn');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const queryType = document.getElementById('query_type').value;
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Validation
+            if (!name) {
+                showError('कृपया नाव प्रविष्ट करा / Please enter your name');
+                return;
+            }
+            if (!phone) {
+                showError('कृपया फोन नंबर प्रविष्ट करा / Please enter phone number');
+                return;
+            }
+            if (!/^[0-9]{10}$/.test(phone.replace(/\s/g, ''))) {
+                showError('कृपया वैध 10 अंकी फोन नंबर प्रविष्ट करा / Please enter valid 10-digit phone number');
+                return;
+            }
+            if (!subject) {
+                showError('कृपया विषय प्रविष्ट करा / Please enter subject');
+                return;
+            }
+            if (!message) {
+                showError('कृपया संदेश प्रविष्ट करा / Please enter your message');
+                return;
+            }
+
+            // Hide error if visible
+            formError.classList.add('hidden');
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>पाठवत आहे... / Submitting...</span>
+            `;
+
+            // Simulate form submission (replace with actual API call)
+            // For static template, just show success after delay
+            setTimeout(() => {
+                // Show success message
+                contactForm.classList.add('hidden');
+                formSuccess.classList.remove('hidden');
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    <span><span class="lang-mr">चौकशी पाठवा</span><span class="lang-en">Submit Query</span></span>
+                `;
+                lucide.createIcons();
+            }, 1500);
+
+            /* 
+            // UNCOMMENT THIS FOR ACTUAL API INTEGRATION:
+            fetch('YOUR_API_ENDPOINT/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    query_type: queryType,
+                    subject: subject,
+                    message: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                contactForm.classList.add('hidden');
+                formSuccess.classList.remove('hidden');
+            })
+            .catch(error => {
+                showError('फॉर्म सबमिट करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा. / Error submitting form. Please try again.');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    <span><span class="lang-mr">चौकशी पाठवा</span><span class="lang-en">Submit Query</span></span>
+                `;
+                lucide.createIcons();
+            });
+            */
+        });
+
+        function showError(message) {
+            errorText.textContent = message;
+            formError.classList.remove('hidden');
+        }
+
+        function resetForm() {
+            contactForm.reset();
+            contactForm.classList.remove('hidden');
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
