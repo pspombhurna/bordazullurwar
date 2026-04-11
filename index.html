@@ -12,10 +12,24 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://unpkg.com">
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Immediate Language Detection to prevent FOIT/FOUT -->
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('preferredLang') || 'lang-mr';
+            document.documentElement.setAttribute('lang', savedLang === 'lang-en' ? 'en' : 'mr');
+            window.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.remove('lang-mr', 'lang-en');
+                document.body.classList.add(savedLang);
+            });
+        })();
+    </script>
     
     <!-- Tailwind Config -->
     <script>
@@ -49,11 +63,11 @@
         }
         
         body {
-            font-family: 'Work Sans', sans-serif;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Mukta', sans-serif;
+            font-family: 'Mukta', "Noto Sans Devanagari", "Segoe UI", Arial, sans-serif;
         }
         
         /* Hero Overlay */
@@ -1049,9 +1063,9 @@
         }
 
         // Initialize Language on Load
+        // Language is now primarily handled in the <head> to prevent FOIT
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLang') || 'lang-mr';
-            document.body.classList.add(savedLang);
             updatePlaceholders(savedLang === 'lang-en' ? 'en' : 'mr');
         });
 
