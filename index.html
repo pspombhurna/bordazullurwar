@@ -177,6 +177,34 @@
             outline: none;
             box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 300ms ease-in-out;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-container {
+            transform: scale(0.95) translateY(20px);
+            transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .scheme-detail-item {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background: #f8fafc;
+            border-left: 4px solid #0056B3;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-900 lang-mr">
@@ -385,7 +413,7 @@
                     <!-- Prashasak -->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/sarpanch SOU. SANGITA RAKESH GAWHARE.jpeg" alt="Sarpanch" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/sarpanch SOU. SANGITA RAKESH GAWHARE.jpeg" alt="Sarpanch" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ. संगीता राकेश गव्हारे</h3>
@@ -397,7 +425,7 @@
                     <!-- Deputy Sarpanch -->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/amol kashinath burande upsarpanch.jpeg" alt="Deputy Sarpanch" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/amol kashinath burande upsarpanch.jpeg" alt="Deputy Sarpanch" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">श्री.रमेश गंगाधर कुमरे
@@ -411,7 +439,7 @@
                     <!-- Member 1 -->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/anuja vikas ramteke.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/anuja vikas ramteke.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ.अनुजा विकास रामटेके
@@ -424,7 +452,7 @@
                     <!-- Member 2 -->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/ashish sudhakar deshattiwar.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/ashish sudhakar deshattiwar.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">श्री.अशिष सुधाकर देशट्टीवार
@@ -437,7 +465,7 @@
                     <!-- Member 3 -->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/indutai anil kumbhare.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/indutai anil kumbhare.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ.इंदुताई अनिल कुंभारे
@@ -450,7 +478,7 @@
                     <!-- Member 4 -->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/kavita rohit raut.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/kavita rohit raut.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ.कविता रोहीत राऊत
@@ -463,7 +491,7 @@
                     <!-- Member 5-->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/lalita pradip gaddekar.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/lalita pradip gaddekar.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">सौ.ललिता प्रदीप गद्देकर 
@@ -476,7 +504,7 @@
                     <!-- Member 6 -->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/pankesh anil naitam.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/pankesh anil naitam.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">श्री.पंकज अनिल नैताम   </h3>
@@ -487,7 +515,7 @@
                     <!-- Member 7  -->
                     <div class="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden card-hover flex-shrink-0 flex-grow-0">
                         <div class="aspect-square bg-slate-100 overflow-hidden">
-                            <img src="./assets/श्री प्रवीण कडूकर.jpg" alt="Member" class="w-full h-full object-cover" loading="lazy">
+                            <img src="./assets/members/श्री प्रवीण कडूकर.jpeg" alt="Member" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h3 class="text-lg font-semibold text-slate-900 mb-1">श्री.प्रवीण कडूकर   </h3>
@@ -511,82 +539,109 @@
 
                 <!-- CUSTOMIZE: Replace with your village images -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- 1. Ek Ghas Mayecha -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/ekghasmayecha.jpeg" alt="Village View" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/ekghasmayecha.jpeg" alt="Ek Ghas Mayecha" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"> <span class="lang-mr">एक घास मायेचा </span><span class="lang-en">Ek Ghas Mayecha</span>
-                            </p>
+                            <p class="text-white text-sm font-medium"> <span class="lang-mr">एक घास मायेचा</span><span class="lang-en">Ek Ghas Mayecha</span></p>
                         </div>
                     </div>
 
+                    <!-- 2. Ek Ghas Mayecha 2 -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/gavachi_mahiti.jpeg" alt="Agricultural Work" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/ekghasmayechatwo.jpeg" alt="Ek Ghas Mayecha 2" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-sm font-medium"> <span class="lang-mr">एक घास मायेचा (२)</span><span class="lang-en">Ek Ghas Mayecha (2)</span></p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Village Info -->
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/gallary/gavachi_mahiti.jpeg" alt="Village Info" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">गावची माहिती</span><span class="lang-en">Village Information</span></p>
                         </div>
                     </div>
 
+                    <!-- 4. Vanrai Bandhara -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/vanraibandhara.jpeg" alt="Rural Life" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/vanraibandhara.jpeg" alt="Vanrai Bandhara" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">वनराई बंधारा</span><span class="lang-en">Vanrai Bandhara</span> </p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">वनराई बंधारा</span><span class="lang-en">Vanrai Bandhara</span></p>
                         </div>
                     </div>
 
-                    <!--div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                    <!-- 5. Aaple Sarkar Seva Kendra -->
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                        <img src="./assets/gallary/aaple_sarkar_seva_kendra.jpeg" alt="Aaple Sarkar Seva Kendra" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">एक घास मायेचा उपक्रम</span><span class="lang-en">Ek Ghas Mayecha Upakram</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">आपले सरकार सेवा केंद्र</span><span class="lang-en">Aaple Sarkar Seva Kendra</span></p>
                         </div>
                     </div>
+
+                    <!-- 6. Seva Kendra List -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/ghantagadi.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/aple_seva_kendra_lis.jpeg" alt="Seva Kendra List" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">स्वच्छता अभियान</span><span class="lang-en">Cleanup Drive by Ghantagadi</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">सेवा केंद्राची यादी</span><span class="lang-en">Seva Kendra List</span></p>
                         </div>
                     </div>
+
+                    <!-- 7. GP Info Banner -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/gramsabha.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/gp_info_banner.jpeg" alt="GP Info" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">ग्रामसभा</span><span class="lang-en">Gramsabha</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">ग्रामपंचायत माहिती</span><span class="lang-en">GP Information</span></p>
                         </div>
                     </div>
+
+                    <!-- 8. GP Samiti Banners -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/heatwawe_info.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/gp_samiti_banners.jpeg" alt="GP Samiti" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">उष्माघात माहिती</span><span class="lang-en">Heatwave Information</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">ग्रामपंचायत समिती</span><span class="lang-en">GP Committee</span></p>
                         </div>
                     </div>
+
+                    <!-- 9. GP Uddisht -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/mahila_sabha.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/gp_uddisht.jpeg" alt="GP Objectives" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">महिला बचत गट</span><span class="lang-en">Mahila Bachat Gat</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">ग्रामपंचायत उद्दिष्टे</span><span class="lang-en">GP Objectives</span></p>
                         </div>
                     </div>
+
+                    <!-- 10. Rules Banner -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/palasbag.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/rules_banner.jpeg" alt="Rules" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">पलाशबाग</span><span class="lang-en">Palasbag</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">नियम व अटी</span><span class="lang-en">Rules & Regulations</span></p>
                         </div>
                     </div>
+
+                    <!-- 11. Constitution Preamble -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/rangoli.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/constitution_preamble.jpeg" alt="Constitution Preamble" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">रांगोळी स्पर्धा</span><span class="lang-en">Rangoli Competition</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">भारतीय संविधानाची उद्देशिका</span><span class="lang-en">Preamble of Constitution</span></p>
                         </div>
                     </div>
+
+                    <!-- 12. Quality Policy -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/yoga.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/gunavatta+dhoran.jpeg" alt="Quality Policy" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">योग दिन</span><span class="lang-en">Yoga Day</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">गुणवत्ता धोरण</span><span class="lang-en">Quality Policy</span></p>
                         </div>
                     </div>
+
+                    <!-- 13. QR Code -->
                     <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
-                        <img src="./assets/zp.jpeg" alt="Villagers" class="w-full h-full object-cover" loading="lazy">
+                        <img src="./assets/gallary/QR_code.jpeg" alt="QR Code" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                            <p class="text-white text-sm font-medium"><span class="lang-mr">झेडपी शाळा</span><span class="lang-en">ZP School</span></p>
+                            <p class="text-white text-sm font-medium"><span class="lang-mr">QR कोड</span><span class="lang-en">QR Code</span></p>
                         </div>
-                    </div-->
+                    </div>
                 </div>
             </div>
         </section>
@@ -603,36 +658,52 @@
 
                 <!-- CUSTOMIZE: Update schemes/notices -->
                 <div class="max-w-3xl mx-auto space-y-4">
-                    <!-- Scheme 1 - New -->
+                    <!-- Scheme 1 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-5 md:p-6">
                         <div class="flex items-start gap-4">
                             <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="file-text" class="w-6 h-6 text-secondary-base"></i>
+                                <i data-lucide="home" class="w-6 h-6 text-secondary-base"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-2 mb-1 flex-wrap">
-                                    <h3 class="text-lg font-semibold text-slate-900">प्रधानमंत्री आवास योजना</h3>
+                                <div class="flex items-center justify-between gap-2 mb-1 flex-wrap">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-slate-900">प्रधानमंत्री आवास योजना</h3>
+                                        <p class="text-sm text-slate-500">Pradhan Mantri Awas Yojana</p>
+                                    </div>
                                     <span class="bg-secondary-base text-white text-xs px-2 py-0.5 rounded-full"><span class="lang-mr">नवीन</span><span class="lang-en">New</span></span>
                                 </div>
-                                <p class="text-sm text-slate-500 mb-1">Pradhan Mantri Awas Yojana</p>
-                                <p class="text-base text-slate-600"><span class="lang-mr">घरकुल योजनेसाठी अर्ज करा</span><span class="lang-en">Apply for housing scheme</span></p>
+                                <div class="flex items-center justify-between mt-3">
+                                    <p class="text-base text-slate-600"><span class="lang-mr">घरकुल योजनेसाठी अर्ज करा</span><span class="lang-en">Apply for housing scheme</span></p>
+                                    <button onclick="openSchemeModal('pmay')" class="text-secondary-base hover:text-primary-base font-semibold text-sm flex items-center gap-1">
+                                        <span class="lang-mr">तपशील पहा</span><span class="lang-en">View Details</span>
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Scheme 2 - New -->
+                    <!-- Scheme 2 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-5 md:p-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="file-text" class="w-6 h-6 text-secondary-base"></i>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check-circle" class="w-6 h-6 text-emerald-600"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-2 mb-1 flex-wrap">
-                                    <h3 class="text-lg font-semibold text-slate-900">स्वच्छ भारत मिशन</h3>
+                                <div class="flex items-center justify-between gap-2 mb-1 flex-wrap">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-slate-900">स्वच्छ भारत मिशन</h3>
+                                        <p class="text-sm text-slate-500">Swachh Bharat Mission</p>
+                                    </div>
                                     <span class="bg-secondary-base text-white text-xs px-2 py-0.5 rounded-full"><span class="lang-mr">नवीन</span><span class="lang-en">New</span></span>
                                 </div>
-                                <p class="text-sm text-slate-500 mb-1">Swachh Bharat Mission</p>
-                                <p class="text-base text-slate-600"><span class="lang-mr">शौचालय बांधकाम अनुदान</span><span class="lang-en">Toilet construction subsidy</span></p>
+                                <div class="flex items-center justify-between mt-3">
+                                    <p class="text-base text-slate-600"><span class="lang-mr">शौचालय बांधकाम अनुदान</span><span class="lang-en">Toilet construction subsidy</span></p>
+                                    <button onclick="openSchemeModal('sbm')" class="text-secondary-base hover:text-primary-base font-semibold text-sm flex items-center gap-1">
+                                        <span class="lang-mr">तपशील पहा</span><span class="lang-en">View Details</span>
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -640,13 +711,23 @@
                     <!-- Scheme 3 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-5 md:p-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="file-text" class="w-6 h-6 text-secondary-base"></i>
+                            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="droplet" class="w-6 h-6 text-amber-600"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-lg font-semibold text-slate-900 mb-1">कृषी सिंचन योजना</h3>
-                                <p class="text-sm text-slate-500 mb-1">Krishi Sinchan Yojana</p>
-                                <p class="text-base text-slate-600"><span class="lang-mr">सूक्ष्म सिंचन सुविधा</span><span class="lang-en">Micro irrigation facility</span></p>
+                                <div class="flex items-center justify-between gap-2 mb-1 flex-wrap">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-slate-900">कृषी सिंचन योजना</h3>
+                                        <p class="text-sm text-slate-500">Krishi Sinchan Yojana</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mt-3">
+                                    <p class="text-base text-slate-600"><span class="lang-mr">सूक्ष्म सिंचन सुविधा</span><span class="lang-en">Micro irrigation facility</span></p>
+                                    <button onclick="openSchemeModal('pmksy')" class="text-secondary-base hover:text-primary-base font-semibold text-sm flex items-center gap-1">
+                                        <span class="lang-mr">तपशील पहा</span><span class="lang-en">View Details</span>
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -654,13 +735,23 @@
                     <!-- Scheme 4 -->
                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm card-hover p-5 md:p-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="file-text" class="w-6 h-6 text-secondary-base"></i>
+                            <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="briefcase" class="w-6 h-6 text-purple-600"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-lg font-semibold text-slate-900 mb-1">महात्मा गांधी रोजगार हमी</h3>
-                                <p class="text-sm text-slate-500 mb-1">MGNREGA</p>
-                                <p class="text-base text-slate-600"><span class="lang-mr">रोजगार नोंदणी सुरू</span><span class="lang-en">Employment registration open</span></p>
+                                <div class="flex items-center justify-between gap-2 mb-1 flex-wrap">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-slate-900">महात्मा गांधी रोजगार हमी</h3>
+                                        <p class="text-sm text-slate-500">MGNREGA</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mt-3">
+                                    <p class="text-base text-slate-600"><span class="lang-mr">रोजगार नोंदणी सुरू</span><span class="lang-en">Employment registration open</span></p>
+                                    <button onclick="openSchemeModal('nrega')" class="text-secondary-base hover:text-primary-base font-semibold text-sm flex items-center gap-1">
+                                        <span class="lang-mr">तपशील पहा</span><span class="lang-en">View Details</span>
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -789,6 +880,65 @@
             </div>
         </section>
     </main>
+
+    <!-- Scheme Details Modal -->
+    <div id="scheme-modal" class="modal-overlay fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="modal-container bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0 z-10">
+                <h3 id="modal-title" class="text-xl font-bold text-primary-base">योजना तपशील</h3>
+                <button onclick="closeSchemeModal()" class="p-2 rounded-full hover:bg-slate-100 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6 text-slate-500"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Content -->
+            <div class="p-6 overflow-y-auto space-y-6">
+                <!-- Eligibility -->
+                <div class="scheme-detail-item">
+                    <div class="flex items-center gap-2 mb-2 text-primary-base">
+                        <i data-lucide="user-check" class="w-5 h-5"></i>
+                        <h4 class="font-bold"><span class="lang-mr">पात्रता</span><span class="lang-en">Eligibility</span></h4>
+                    </div>
+                    <p id="modal-eligibility" class="text-slate-600 text-sm md:text-base"></p>
+                </div>
+
+                <!-- Benefits -->
+                <div class="scheme-detail-item" style="border-left-color: #10b981;">
+                    <div class="flex items-center gap-2 mb-2 text-emerald-600">
+                        <i data-lucide="gift" class="w-5 h-5"></i>
+                        <h4 class="font-bold"><span class="lang-mr">फायदे</span><span class="lang-en">Benefits</span></h4>
+                    </div>
+                    <p id="modal-benefits" class="text-slate-600 text-sm md:text-base"></p>
+                </div>
+
+                <!-- Documents -->
+                <div class="scheme-detail-item" style="border-left-color: #f59e0b;">
+                    <div class="flex items-center gap-2 mb-2 text-amber-600">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                        <h4 class="font-bold"><span class="lang-mr">आवश्यक कागदपत्रे</span><span class="lang-en">Required Documents</span></h4>
+                    </div>
+                    <p id="modal-documents" class="text-slate-600 text-sm md:text-base"></p>
+                </div>
+
+                <!-- How to Apply -->
+                <div class="scheme-detail-item" style="border-left-color: #ec4899;">
+                    <div class="flex items-center gap-2 mb-2 text-pink-600">
+                        <i data-lucide="mouse-pointer-click" class="w-5 h-5"></i>
+                        <h4 class="font-bold"><span class="lang-mr">अर्ज कसा करावा?</span><span class="lang-en">How to Apply?</span></h4>
+                    </div>
+                    <p id="modal-how-to-apply" class="text-slate-600 text-sm md:text-base"></p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end">
+                <button onclick="closeSchemeModal()" class="px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg font-semibold transition-colors">
+                    <span class="lang-mr">बंद करा</span><span class="lang-en">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- ==================== FOOTER ==================== -->
     <footer id="contact" class="bg-primary-base text-white py-16 md:py-20">
@@ -1091,6 +1241,124 @@
             formSuccess.classList.add('hidden');
             formError.classList.add('hidden');
         }
+
+        // Scheme Data for Modals
+        const schemesInfo = {
+            pmay: {
+                title: { mr: "प्रधानमंत्री आवास योजना (ग्रामीण)", en: "PMAY-G (Housing Scheme)" },
+                eligibility: {
+                    mr: "ज्या कुटुंबांकडे पक्के घर नाही किंवा जे कुटुंब शून्य, एक किंवा दोन खोल्यांच्या कच्च्या घरात राहत आहेत. SECC २०११ डेटा मधील पात्र कुटुंबे.",
+                    en: "Families without a pucca house or living in zero, one, or two-room kutcha houses. Eligible families as per SECC 2011 data."
+                },
+                benefits: {
+                    mr: "मैदानी क्षेत्रांसाठी ₹१.२० लाख आणि डोंगराळ भागासाठी ₹१.३० लाख अनुदान. स्वच्छ भारत मिशन अंतर्गत शौचालयासाठी अतिरिक्त ₹१२,०००/- अनुदान.",
+                    en: "₹1.20 Lakh for plain areas and ₹1.30 Lakh for hilly areas. Additional ₹12,000/- for toilet construction under SBM."
+                },
+                documents: {
+                    mr: "आधार कार्ड, बँक खाते (आधार लिंक), मनरेगा जॉब कार्ड, स्वच्छ भारत मिशन नोंदणी क्रमांक, कुटुंबाचे घोषणापत्र.",
+                    en: "Aadhaar Card, Bank Account (Link to Aadhaar), MGNREGA Job Card, SBM Registration Number, Family Declaration."
+                },
+                howToApply: {
+                    mr: "आपल्या ग्रामपंचायत कार्यालयात अर्ज सादर करा किंवा SECC पात्र यादीत नाव तपासा. ग्रामसभेद्वारे अर्जाची पडताळणी केली जाते.",
+                    en: "Submit application at your local Gram Panchayat or check name in SECC list. Documents are verified by Gram Sabha."
+                }
+            },
+            sbm: {
+                title: { mr: "स्वच्छ भारत मिशन (ग्रामीण)", en: "Swachh Bharat Mission (Gramin)" },
+                eligibility: {
+                    mr: "ग्रामीण भागातील ज्या कुटुंबांककडे स्वतःचे शौचालय नाही. प्रामुख्याने SC/ST, अल्पभूधारक आणि BPL कुटुंबांना प्राधान्य.",
+                    en: "Rural households without an individual toilet. Priority given to SC/ST, marginal farmers, and BPL families."
+                },
+                benefits: {
+                    mr: "वैयक्तिक शौचालय बांधकामासाठी ₹१२,०००/- प्रोत्साहनपर अनुदान. अनुदानाची रक्कम थेट बँक खात्यात जमा केली जाते.",
+                    en: "Financial incentive of ₹12,000/- for individual toilet construction. Amount is credited via Direct Benefit Transfer (DBT)."
+                },
+                documents: {
+                    mr: "आधार कार्ड, बँक पासबुकची प्रत, पासपोर्ट फोटो, जमिनीचा पुरावा किंवा ग्रामपंचायतीचे प्रमाणपत्र.",
+                    en: "Aadhaar Card, Bank Passbook copy, Passport size photo, land record or Gram Panchayat certificate."
+                },
+                howToApply: {
+                    mr: "ग्रामपंचायत किंवा पंचायत समिती कार्यालयात अर्ज करा. तसेच sbm.gov.in पोर्टलवर ऑनलाइन अर्ज करता येतो.",
+                    en: "Apply at Gram Panchayat or Panchayat Samiti. Online application available at sbm.gov.in portal."
+                }
+            },
+            pmksy: {
+                title: { mr: "प्रधानमंत्री कृषी सिंचन योजना", en: "PM Krishi Sinchan Yojana" },
+                eligibility: {
+                    mr: "स्वतःच्या नावावर जमीन असलेले सर्व शेतकरी. ५ हेक्टर क्षेत्रापर्यंत ठिबक किंवा तुषार सिंचन बसवणारे शेतकरी पात्र.",
+                    en: "All farmers with land in their ownership. Farmers installing Drip or Sprinkler irrigation up to 5 hectares area."
+                },
+                benefits: {
+                    mr: "लघु व सीमांत शेतकऱ्यांसाठी ५५% अनुदान आणि इतर शेतकऱ्यांसाठी ४५% अनुदान. पाण्याची बचत आणि उत्पादनात वाढ.",
+                    en: "55% subsidy for small & marginal farmers and 45% for other farmers. Efficient water usage and yield growth."
+                },
+                documents: {
+                    mr: "आधार कार्ड, ७/१२ आणि ८-अ उतारा, बँक पासबुक, वीज बिल, जातीचे प्रमाणपत्र (आवश्यक असल्यास).",
+                    en: "Aadhaar Card, 7/12 & 8-A land records, Bank passbook, Electricity bill, Caste certificate (if applicable)."
+                },
+                howToApply: {
+                    mr: "महाराष्ट्र राज्यातील शेतकऱ्यांनी महाडीबीटी (MahaDBT) पोर्टलवर ऑनलाइन नोंदणी करावी. पूर्व-मंजुरीनंतर सिंचन संच खरेदी करावा.",
+                    en: "Farmers in Maharashtra should register on MahaDBT portal. Purchase equipment only after receiving pre-sanction."
+                }
+            },
+            nrega: {
+                title: { mr: "महात्मा गांधी रोजगार हमी (मनरेगा)", en: "MGNREGA" },
+                eligibility: {
+                    mr: "ग्रामीण भागातील १८ वर्षांवरील सर्व प्रौढ सदस्य जे अकुशल शारीरिक काम करण्यास इच्छुक आहेत.",
+                    en: "All adult members in rural areas (above 18 years) who are willing to do unskilled manual labor."
+                },
+                benefits: {
+                    mr: "एका आर्थिक वर्षात किमान १०० दिवसांच्या रोजगाराची हमी. कामाची मागणी केल्यावर १५ दिवसांच्या आत काम न मिळाल्यास बेरोजगारी भत्ता.",
+                    en: "Guaranteed 100 days of employment in a financial year. Unemployment allowance if work not provided within 15 days."
+                },
+                documents: {
+                    mr: "आधार कार्ड, रेशन कार्ड, बँक खाते तपशील, पासपोर्ट फोटो, कौटुंबिक माहिती.",
+                    en: "Aadhaar Card, Ration Card, Bank account details, Passport size photos, family information."
+                },
+                howToApply: {
+                    mr: "ग्रामपंचायत कार्यालयात जॉब कार्डसाठी अर्ज करा. जॉब कार्ड मिळाल्यावर कामाची मागणी (नमुना ६) नोंदवू शकता.",
+                    en: "Apply for a Job Card at Gram Panchayat. After receiving the card, request for work through Form 6."
+                }
+            }
+        };
+
+        // Modal Logic
+        const modal = document.getElementById('scheme-modal');
+        const currentLang = () => document.body.classList.contains('lang-en') ? 'en' : 'mr';
+
+        function openSchemeModal(schemeKey) {
+            const data = schemesInfo[schemeKey];
+            const lang = currentLang();
+            
+            // Set Titles & Content
+            document.getElementById('modal-title').innerText = data.title[lang];
+            document.getElementById('modal-eligibility').innerText = data.eligibility[lang];
+            document.getElementById('modal-benefits').innerText = data.benefits[lang];
+            document.getElementById('modal-documents').innerText = data.documents[lang];
+            document.getElementById('modal-how-to-apply').innerText = data.howToApply[lang];
+            
+            // Show Modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+            
+            // Re-render icons if any were added
+            lucide.createIcons();
+        }
+
+        function closeSchemeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scroll
+        }
+
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeSchemeModal();
+        });
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeSchemeModal();
+        });
     </script>
 </body>
 </html>
