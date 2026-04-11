@@ -192,32 +192,46 @@
             box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
         }
 
-        /* Modal Styles */
-        .modal-overlay {
+        /* Gallery Modal Styles */
+        .gallery-modal-overlay {
             opacity: 0;
             visibility: hidden;
-            transition: all 300ms ease-in-out;
+            transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .modal-overlay.active {
+
+        .gallery-modal-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-        
-        .modal-container {
-            transform: scale(0.95) translateY(20px);
-            transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        .gallery-modal-content {
+            transform: scale(0.9) translateY(40px);
+            transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 90vw;
+            max-height: 85vh;
         }
-        
-        .modal-overlay.active .modal-container {
+
+        .gallery-modal-overlay.active .gallery-modal-content {
             transform: scale(1) translateY(0);
         }
 
-        .scheme-detail-item {
-            padding: 1rem;
-            border-radius: 0.75rem;
-            background: #f8fafc;
-            border-left: 4px solid #0056B3;
+        .gallery-nav-btn {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            transition: all 200ms ease;
+        }
+
+        .gallery-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+        }
+
+        .gallery-nav-btn:active {
+            transform: scale(0.95);
+        }
+
+        .gallery-image-container {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -554,105 +568,170 @@
                 <!-- CUSTOMIZE: Replace with your village images -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <!-- 1. Ek Ghas Mayecha -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(0)">
                         <img src="./assets/gallary/ekghasmayecha.jpeg" alt="Ek Ghas Mayecha" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"> <span class="lang-mr">एक घास मायेचा</span><span class="lang-en">Ek Ghas Mayecha</span></p>
                         </div>
                     </div>
 
                     <!-- 2. Ek Ghas Mayecha 2 -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(1)">
                         <img src="./assets/gallary/ekghasmayechatwo.jpeg" alt="Ek Ghas Mayecha 2" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"> <span class="lang-mr">एक घास मायेचा (२)</span><span class="lang-en">Ek Ghas Mayecha (2)</span></p>
                         </div>
                     </div>
 
                     <!-- 3. Village Info -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(2)">
                         <img src="./assets/gallary/gavachi_mahiti.jpeg" alt="Village Info" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">गावची माहिती</span><span class="lang-en">Village Information</span></p>
                         </div>
                     </div>
 
                     <!-- 4. Vanrai Bandhara -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(3)">
                         <img src="./assets/gallary/vanraibandhara.jpeg" alt="Vanrai Bandhara" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">वनराई बंधारा</span><span class="lang-en">Vanrai Bandhara</span></p>
                         </div>
                     </div>
 
                     <!-- 5. Aaple Sarkar Seva Kendra -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(4)">
                         <img src="./assets/gallary/aaple_sarkar_seva_kendra.jpeg" alt="Aaple Sarkar Seva Kendra" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">आपले सरकार सेवा केंद्र</span><span class="lang-en">Aaple Sarkar Seva Kendra</span></p>
                         </div>
                     </div>
 
                     <!-- 6. Seva Kendra List -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(5)">
                         <img src="./assets/gallary/aple_seva_kendra_lis.jpeg" alt="Seva Kendra List" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">सेवा केंद्राची यादी</span><span class="lang-en">Seva Kendra List</span></p>
                         </div>
                     </div>
 
                     <!-- 7. GP Info Banner -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(6)">
                         <img src="./assets/gallary/gp_info_banner.jpeg" alt="GP Info" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">ग्रामपंचायत माहिती</span><span class="lang-en">GP Information</span></p>
                         </div>
                     </div>
 
                     <!-- 8. GP Samiti Banners -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(7)">
                         <img src="./assets/gallary/gp_samiti_banners.jpeg" alt="GP Samiti" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">ग्रामपंचायत समिती</span><span class="lang-en">GP Committee</span></p>
                         </div>
                     </div>
 
                     <!-- 9. GP Uddisht -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(8)">
                         <img src="./assets/gallary/gp_uddisht.jpeg" alt="GP Objectives" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">ग्रामपंचायत उद्दिष्टे</span><span class="lang-en">GP Objectives</span></p>
                         </div>
                     </div>
 
                     <!-- 10. Rules Banner -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(9)">
                         <img src="./assets/gallary/rules_banner.jpeg" alt="Rules" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">नियम व अटी</span><span class="lang-en">Rules & Regulations</span></p>
                         </div>
                     </div>
 
                     <!-- 11. Constitution Preamble -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(10)">
                         <img src="./assets/gallary/constitution_preamble.jpeg" alt="Constitution Preamble" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">भारतीय संविधानाची उद्देशिका</span><span class="lang-en">Preamble of Constitution</span></p>
                         </div>
                     </div>
 
                     <!-- 12. Quality Policy -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(11)">
                         <img src="./assets/gallary/gunavatta+dhoran.jpeg" alt="Quality Policy" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">गुणवत्ता धोरण</span><span class="lang-en">Quality Policy</span></p>
                         </div>
                     </div>
 
                     <!-- 13. QR Code -->
-                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]">
+                    <div class="gallery-image-container relative rounded-xl overflow-hidden group aspect-[4/3]" onclick="openGalleryModal(12)">
                         <img src="./assets/gallary/QR_code.jpeg" alt="QR Code" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                             <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                             </div>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                             <p class="text-white text-sm font-medium"><span class="lang-mr">QR कोड</span><span class="lang-en">QR Code</span></p>
                         </div>
                     </div>
@@ -950,6 +1029,33 @@
                 <button onclick="closeSchemeModal()" class="px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg font-semibold transition-colors">
                     <span class="lang-mr">बंद करा</span><span class="lang-en">Close</span>
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox Modal -->
+    <div id="gallery-modal" class="gallery-modal-overlay fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-md px-4">
+        <!-- Close Button -->
+        <button onclick="closeGalleryModal()" class="absolute top-6 right-6 z-[120] p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+
+        <!-- Navigation Buttons -->
+        <button onclick="prevImage()" class="gallery-nav-btn absolute left-4 md:left-8 z-[120] p-3 rounded-full text-white">
+            <i data-lucide="chevron-left" class="w-10 h-10"></i>
+        </button>
+        <button onclick="nextImage()" class="gallery-nav-btn absolute right-4 md:right-8 z-[120] p-3 rounded-full text-white">
+            <i data-lucide="chevron-right" class="w-10 h-10"></i>
+        </button>
+
+        <!-- Image Content -->
+        <div class="gallery-modal-content relative flex flex-col items-center">
+            <img id="gallery-modal-img" src="" alt="Gallery Image" class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl">
+            
+            <!-- Caption -->
+            <div class="mt-6 text-center">
+                <p id="gallery-modal-caption" class="text-white text-lg md:text-xl font-medium"></p>
+                <p id="gallery-modal-counter" class="text-white/50 text-sm mt-2 font-mono"></p>
             </div>
         </div>
     </div>
@@ -1371,7 +1477,81 @@
 
         // Close on ESC
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) closeSchemeModal();
+            if (e.key === 'Escape') {
+                if (modal.classList.contains('active')) closeSchemeModal();
+                if (galleryModal.classList.contains('active')) closeGalleryModal();
+            }
+            if (galleryModal.classList.contains('active')) {
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
+
+        // Gallery Modal Logic
+        const galleryModal = document.getElementById('gallery-modal');
+        const galleryImg = document.getElementById('gallery-modal-img');
+        const galleryCaption = document.getElementById('gallery-modal-caption');
+        const galleryCounter = document.getElementById('gallery-modal-counter');
+        
+        // Extract gallery items data
+        let galleryItems = [];
+        let currentImageIndex = 0;
+
+        function initGallery() {
+            const items = document.querySelectorAll('#gallery .gallery-image-container');
+            galleryItems = Array.from(items).map(item => {
+                const img = item.querySelector('img');
+                const captionMr = item.querySelector('.lang-mr').innerText;
+                const captionEn = item.querySelector('.lang-en').innerText;
+                return {
+                    src: img.src,
+                    caption: { mr: captionMr, en: captionEn }
+                };
+            });
+        }
+
+        function openGalleryModal(index) {
+            if (galleryItems.length === 0) initGallery();
+            currentImageIndex = index;
+            updateGalleryModal();
+            galleryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeGalleryModal() {
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateGalleryModal() {
+            const item = galleryItems[currentImageIndex];
+            const lang = currentLang();
+            
+            // Fade out effect before changing source
+            galleryImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                galleryImg.src = item.src;
+                galleryCaption.innerText = item.caption[lang];
+                galleryCounter.innerText = `${currentImageIndex + 1} / ${galleryItems.length}`;
+                galleryImg.style.opacity = '1';
+            }, 150)
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+            updateGalleryModal();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateGalleryModal();
+        }
+
+        // Close on outside click
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) closeGalleryModal();
         });
     </script>
 </body>
